@@ -1,0 +1,95 @@
+<section class="receita" [ngStyle]="{ 'background-image': 'url(' + receita?.imagePath?.large + ') ' }">
+  <div class="btn btn-back" (click)="onBack()">
+    <i class="icon icon-back"></i>
+    <span class="icon-legend"> Voltar</span>
+  </div>
+  <div class="timer">
+    <div class="row">
+      <div class="col-4 time-icon">
+        <i class="icon icon-time"></i>
+      </div>
+      <div class="col-8 time">
+        Tempo de Preparo
+        <br />
+        <p>{{ receita?.tempoPreparo }} minutos</p>
+      </div>
+    </div>
+  </div>
+  <div class="dialog" [style.visibility]="isDialog ? 'visible' : 'hidden'">
+    <div class="dialog-container">
+      <button type="button" class="close" (click)="closeDialog()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <div class="container">
+        <div class="dialog-title title">{{ dialog?.title }}</div>
+        <div class="message">
+          {{ dialog?.message }}
+        </div>
+        <button class="btn btn-notification" (click)="closeDialog()">{{ dialog?.buttonMessage }}</button>
+      </div>
+    </div>
+  </div>
+  <div class="receita-info" [style.color]="infoColor">
+    <h2 class="receita-nome">
+      {{ receita?.nome }}
+    </h2>
+    <p class="receita-descricao">
+      {{ receita?.descricao }}
+    </p>
+  </div>
+</section>
+<section class="ingredients">
+  <div class="container">
+    <h2 class="title">Ingredientes</h2>
+    <ul #ingredientList>
+      <li #item class="btn-list" *ngFor="let ingrediente of receita?.ingredientes">
+        <label class="checky round">
+          <input type="checkbox" (click)="validarIngredientes()" />
+          <span></span>
+          <span class="check-item">{{ ingrediente }}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="preparation">
+  <div class="container">
+    <h2 class="title">Modo de Preparo</h2>
+    <ul #preparationList>
+      <li class="btn-list" *ngFor="let passo of receita?.passos">
+        <label class="checky round">
+          <input type="checkbox" (click)="validarIngredientes()" />
+          <span></span>
+          <span class="preparation-item check-item">
+            <div class="list-title">Passo {{ passo?.ordem }}</div>
+            <div class="preparation-description">{{ passo?.descricao }}</div>
+          </span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="status">
+  <div class="container">
+    <div class="row status-line">
+      <div class="status-item col-9">
+        <div class="status-description">
+          Status <strong>{{ progress }}</strong> pronto e {{ math.floor(contagem / 60).toFixed() }} minuto(s) utilizado(s)
+        </div>
+        <div class="progress">
+          <div [ngStyle]="{ width: progress, 'background-color': progressColor }" class="progress-bar"></div>
+        </div>
+      </div>
+      <div class="col-2 status-item">
+        <button
+          (click)="openDialog()"
+          [disabled]="ingredientesNaoMarcados"
+          class="btn btn-send"
+          [ngClass]="{ green: podeFinalizar, orange: !podeFinalizar }"
+        >
+          {{ btnMsg }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

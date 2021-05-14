@@ -1,0 +1,10 @@
+[
+    {
+        "_id": "609d2d9cafd74f002cb8bb5c",
+        "username": "testeusername",
+        "email": "testeusername",
+        "password": "$2a$10$kwz4Nv8g1oQGrBdg36dCJO/6CyWZDXhHUaeQk./mptO1d8y12uPVO",
+        "firstName": "Tester",
+        "lastName": "App"
+    }
+]

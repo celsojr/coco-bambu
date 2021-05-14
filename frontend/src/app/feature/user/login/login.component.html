@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+      <div class="row">
+        <div class="col-lg-5 col-md-8 mx-auto">
+          <div class="card">
+            <article class="pedidos-mensagem">
+              <div class="pedidos">
+                <span class="pedidos-total">1</span>
+                Novo pedido
+              </div>
+              <div class="pedidos-login-msg">Por favor, faça o login para ver o pedido e ter acesso a receita com o modo de preparo</div>
+            </article>
+            <article class="card-body">
+              <div class="logo">
+                <img src="../../../../assets/images/logo-coco-bambu.png" />
+              </div>
+              <form (submit)="login(loginForm)" novalidate [formGroup]="loginForm">
+                <div class="form-group">
+                  <input
+                    class="form-control usuario"
+                    placeholder="Nome do usuário"
+                    type="email"
+                    name="username"
+                    formControlName="userName"
+                  />
+                  <validation-messages [control]="loginForm.controls['userName']"> </validation-messages>
+                </div>
+                <!-- form-group// -->
+                <div class="form-group">
+                  <input class="form-control senha" placeholder="Senha" type="password" name="password" formControlName="password" />
+                  <validation-messages [control]="loginForm.controls['password']"> </validation-messages>
+                </div>
+                <!-- form-group// -->
+                <div class="form-group">
+                  <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block">Acessar</button>
+                </div>
+                <!-- form-group// -->
+              </form>
+            </article>
+          </div>
+          <!-- card.// -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

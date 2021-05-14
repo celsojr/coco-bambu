@@ -1,0 +1,59 @@
+<nav class="navbar">
+  <a class="navbar-brand" href="#">
+    <img class="logo" src="../../../../assets/images/logo-coco-bambu-mini.png" />
+  </a>
+  <div class="navbar-session">
+    <form class="search">
+      <input
+        class="form-control mr-sm-2"
+        [(ngModel)]="filtro"
+        type="text"
+        placeholder="Buscar receita..."
+        name="Filtrar"
+        aria-label="Filtrar"
+      />
+    </form>
+
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="javascript:void(0)">
+          <i class="fa fa-fw fa-pencil-square-o icon"></i>
+          <span>Pedidos</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0)">
+          <i class="fa fa-fw fa-list-alt icon"></i>
+          <span>Receitas</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0)" (click)="onLoggedout()">
+          <i class="fa fa-fw fa-sign-out icon"></i>
+          <span>Sair</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1>Últimos pedidos</h1>
+
+<ul class="items">
+  <li *ngFor="let receita of receitas | search: filtro">
+    <div class="item">
+      <img [src]="receita?.imagePath?.small" />
+
+      <div class="text">
+        <h2 [innerHTML]="receita?.nome | highlight: filtro"></h2>
+        <p [innerHTML]="receita?.descricao | highlight: filtro"></p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <span class="finalizado">Prato Finalizado</span>
+      <span class="data">Hoje 19:32</span>
+      <span class="receita" (click)="verReceita(receita?._id)">Ver receita</span>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  angular:
+    image: celsojr/coco-bambu-angular:latest # especificar que imagem usar
+    container_name: coco_bambu_angular
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=dev
+
+  express:
+    image: celsojr/coco-bambu-expressjs:latest # especificar que imagem usar
+    container_name: coco_bambu_express
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - SECRET=Thisismysecret
+      - MONGO_DB_USERNAME=admin-user
+      - MONGO_DB_PASSWORD=admin-password
+      - MONGO_DB_HOST=database
+      - MONGO_DB_PORT=
+      - MONGO_DB_PARAMETERS=?authSource=admin
+      - MONGO_DB_DATABASE=coco-bambu
+    links:
+      - database
+
+  database:
+    image: mongo:latest # especificar que imagem usar
+    container_name: coco_bambu_mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin-user
+      - MONGO_INITDB_ROOT_PASSWORD=admin-password
+      - MONGO_DB_USERNAME=admin-user1
+      - MONGO_DB_PASSWORD=admin-password1
+      - MONGO_DB=coco-bambu # nome do banco de dados
+    volumes:
+      - ./mongo:/home/mongodb
+      - ./mongo/init-db.d/:/docker-entrypoint-initdb.d/
+      - ./mongo/db:/data/db
+    ports:
+      - "27017:27017"
+
+  nginx:
+    image: celsojr/coco-bambu-nginx # especificar que imagem usar
+    container_name: coco_bambu_nginx
+    restart: always
+    ports:
+      - "80:80"
+    links:
+      - express
+      - angular

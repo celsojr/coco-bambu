@@ -1,0 +1,64 @@
+@import "../../../../variables";
+
+:host {
+  .navbar {
+    background-color: map-get($coco-bambu-colors, menu-background);
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    .logo {
+      margin-left: 20px;
+    }
+    .navbar-session {
+      display: contents;
+      .search {
+        width: 50%;
+        @media screen and (max-width: 769px) {
+          width: 250px;
+        }
+        .form-control {
+          background-image: url("../../../../assets/images/icon-busca.png");
+          background-size: 35px;
+          background-repeat: no-repeat;
+          background-position-y: center;
+          background-position-x: right;
+          padding-left: 10px;
+          font-style: italic;
+          border: 0;
+          border-radius: initial;
+          transition: none;
+        }
+      }
+      .menu-item {
+        padding: 10px;
+        $size: 80px;
+        width: $size;
+        height: $size;
+        &:hover {
+          background-color: white;
+        }
+        .icon {
+          display: block;
+          margin: 0 auto;
+          font-size: 40px;
+        }
+      }
+      .menu-item > a {
+        color: #999;
+        &:hover {
+          color: map-get($coco-bambu-colors, primary);
+          text-decoration: none;
+        }
+      }
+      ul {
+        margin: 0;
+        margin-bottom: initial;
+        li {
+          float: left;
+          list-style: none;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

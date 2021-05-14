@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <a class="navbar-brand" href="#">
+    <img class="logo" src="../../../../assets/images/logo-coco-bambu-mini.png" />
+  </a>
+  <div class="navbar-session">
+    <form class="search">
+      <input class="form-control mr-sm-2" type="text" placeholder="Buscar receita..." />
+    </form>
+
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="javascript:void(0)">
+          <i class="fa fa-fw fa-pencil-square-o icon"></i>
+          <span>Pedidos</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0)">
+          <i class="fa fa-fw fa-list-alt icon"></i>
+          <span>Receitas</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0)" (click)="onLoggedout()">
+          <i class="fa fa-fw fa-sign-out icon"></i>
+          <span>Sair</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

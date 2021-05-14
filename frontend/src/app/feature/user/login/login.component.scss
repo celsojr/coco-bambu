@@ -1,0 +1,121 @@
+@import "../../../../variables";
+
+// grid.css reset
+@media (min-width: 1200px) {
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: initial;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: initial;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: initial;
+  }
+}
+
+@media (min-width: 576px) {
+  .container-sm,
+  .container {
+    max-width: initial;
+  }
+}
+
+.container {
+  background: url("../../../../assets/images/img-bg-login.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.card {
+  background-color: transparent;
+  text-align: center;
+  border: 0;
+  .card-body {
+    margin-top: 50px;
+  }
+  .logo {
+    margin-bottom: 60px;
+  }
+}
+
+.form-group > input {
+  margin: 0 auto;
+  &.form-control {
+    max-width: 280px;
+    border-radius: 0;
+    &.usuario,
+    &.senha {
+      background-size: 35px;
+      background-repeat: no-repeat;
+      background-position-y: center;
+      padding-left: 35px;
+      font-style: italic;
+    }
+    &.usuario {
+      background-image: url("../../../../assets/images/icon-login.png");
+    }
+    &.senha {
+      background-image: url("../../../../assets/images/icon-key.png");
+    }
+  }
+}
+
+.pedidos-mensagem {
+  background-color: white;
+  border-radius: 5px;
+  color: map-get($coco-bambu-colors, primary);
+  padding: 25px;
+  max-width: 370px;
+  margin: 0 auto;
+  &:after,
+  &:before {
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid white;
+    top: 137px;
+    content: "";
+    left: 50%;
+    margin-left: -20px;
+    position: absolute;
+  }
+  .pedidos {
+    display: block;
+    float: left;
+    border-right: 1px solid #efefef;
+    padding: 0 20px;
+    margin-right: 20px;
+    .pedidos-total {
+      display: block;
+      font-size: 70px;
+      font-weight: bold;
+      line-height: 90%;
+    }
+  }
+  .pedidos-login-msg {
+    color: black;
+    font-size: 15px;
+    text-align: left;
+    font-style: italic;
+    width: 170px;
+    margin-left: 150px;
+    line-height: 120%;
+    margin-top: 8px;
+  }
+}

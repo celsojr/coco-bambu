@@ -1,0 +1,144 @@
+@import "../../../../variables";
+
+.navbar {
+  padding: 0;
+  background-color: map-get($coco-bambu-colors, menu-background);
+  .logo {
+    margin-left: 20px;
+  }
+  .navbar-session {
+    display: contents;
+    .search {
+      width: 50%;
+      @media screen and (max-width: 769px) {
+        width: 250px;
+      }
+      .form-control {
+        background-image: url("../../../../assets/images/icon-busca.png");
+        background-size: 35px;
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-position-x: right;
+        padding-left: 10px;
+        font-style: italic;
+        border: 0;
+        border-radius: initial;
+        transition: none;
+      }
+    }
+    .menu-item {
+      padding: 10px;
+      $size: 80px;
+      width: $size;
+      height: $size;
+      &:hover {
+        background-color: white;
+      }
+      .icon {
+        display: block;
+        margin: 0 auto;
+        font-size: 40px;
+      }
+    }
+    .menu-item > a {
+      color: #999;
+      &:hover {
+        color: map-get($coco-bambu-colors, primary);
+        text-decoration: none;
+      }
+    }
+    ul {
+      margin: 0;
+      margin-bottom: initial;
+      li {
+        float: left;
+        list-style: none;
+        text-align: center;
+      }
+    }
+  }
+}
+
+h1 {
+  padding: 40px 20px;
+  border-bottom: 1px solid #efefef;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.items {
+  list-style: none;
+  padding: 0 20px;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    .item {
+      display: flex;
+      align-items: center;
+      img {
+        float: left;
+        margin-right: 20px;
+      }
+      .text {
+        h2 {
+          font-size: 18px;
+          font-weight: bold;
+          @media screen and (min-width: 769px) {
+            font-size: 18px;
+          }
+        }
+        p {
+          font-size: 12px;
+          line-height: 120%;
+          @media screen and (min-width: 769px) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .actions {
+      display: flex;
+      .finalizado,
+      .receita,
+      .data {
+        border-radius: 50%;
+        padding: 20px;
+        height: 80px;
+        width: 80px;
+        display: flex;
+        justify-content: center;
+        line-height: 120%;
+        text-align: center;
+        margin: 0 10px;
+      }
+      .finalizado {
+        font-weight: 100;
+        color: #82d82d;
+        font-size: 18px;
+      }
+      .data {
+        font-weight: 100;
+        color: black;
+        background-color: #f0f0f0;
+      }
+      .receita {
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        background-color: map-get($coco-bambu-colors, primary);
+      }
+      > a {
+        color: white;
+        text-decoration: none;
+      }
+      > a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
