@@ -1,59 +1,125 @@
-<nav class="navbar">
-  <a class="navbar-brand" href="#">
-    <img class="logo" src="../../../../assets/images/logo-coco-bambu-mini.png" />
-  </a>
-  <div class="navbar-session">
-    <form class="search">
-      <input
-        class="form-control mr-sm-2"
-        [(ngModel)]="filtro"
-        type="text"
-        placeholder="Buscar receita..."
-        name="Filtrar"
-        aria-label="Filtrar"
-      />
-    </form>
+<div class="navbar-container">
+  <div class="container">
+    <nav class="navbar navbar-expand-sm">
+      <a class="navbar-brand" href="#">
+        <img class="logo" src="/assets/images/logo-coco-bambu-mini.png" alt="Coco Bambu" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <ul class="menu">
-      <li class="menu-item">
-        <a href="javascript:void(0)">
-          <i class="fa fa-fw fa-pencil-square-o icon"></i>
-          <span>Pedidos</span>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="javascript:void(0)">
-          <i class="fa fa-fw fa-list-alt icon"></i>
-          <span>Receitas</span>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a href="javascript:void(0)" (click)="onLoggedout()">
-          <i class="fa fa-fw fa-sign-out icon"></i>
-          <span>Sair</span>
-        </a>
-      </li>
-    </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <input class="form-control search" [(ngModel)]="filtro" type="text" placeholder="Buscar receita..." aria-label="Search" />
+        <ul class="navbar-nav mr-auto w-100 justify-content-end">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/receitas']">
+              <span class="item-icon receitas">
+                <svg class="navbar-nav-svg" viewBox="0 0 16 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <title>Pedidos</title>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 18H12L12.7334 9.93292C14.5923 9.58848 16 7.95864 16 6C16 3.79086 14.2091 2 12 2C11.8251 2 11.6528 2.01123 11.4838 2.03301C10.797 0.819225 9.49415 0 8 0C6.50585 0 5.20304 0.819225 4.51624 2.03301C4.34724 2.01123 4.17493 2 4 2C1.79086 2 0 3.79086 0 6C0 7.95864 1.40774 9.58848 3.26663 9.93292L4 18ZM12.6423 9.44129L12.2697 9.51032L11.8388 14.25H10.25V11H9.75V14.25H8.25V10H7.75V14.25H6.25V11H5.75V14.25H4.16115L3.73027 9.51032L3.35773 9.44129C1.7315 9.13996 0.5 7.71327 0.5 6C0.5 4.067 2.067 2.5 4 2.5C4.15351 2.5 4.30448 2.50985 4.45235 2.52891L4.78583 2.57188L4.95141 2.27924C5.5531 1.21588 6.69327 0.5 8 0.5C9.30673 0.5 10.4469 1.21588 11.0486 2.27924L11.2142 2.57188L11.5477 2.52891C11.6955 2.50985 11.8465 2.5 12 2.5C13.933 2.5 15.5 4.067 15.5 6C15.5 7.71327 14.2685 9.13996 12.6423 9.44129ZM4.20661 14.75L4.45661 17.5H11.5434L11.7934 14.75H4.20661Z"
+                  />
+                </svg>
+              </span>
+              Pedidos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/receitas']">
+              <span class="item-icon">
+                <svg class="navbar-nav-svg" viewBox="0 0 32 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <title>Receitas</title>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M30.6667 1H1V29H30.6667V1ZM0 0V30H31.6667V0H0Z" />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M15.6667 4.33333H4.33333V16.5H15.6667V4.33333ZM3.33333 3.33333V17.5H16.6667V3.33333H3.33333Z"
+                  />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.3333 4.66667H18.3333V3.66667H28.3333V4.66667Z" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.3333 8.83333H18.3333V7.83333H28.3333V8.83333Z" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.3333 13H18.3333V12H28.3333V13Z" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.3333 17.1667H18.3333V16.1667H28.3333V17.1667Z" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.3333 21.3333H3.33333V20.3333H28.3333V21.3333Z" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.3333 25.5H3.33333V24.5H28.3333V25.5Z" />
+                </svg>
+              </span>
+              Receitas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="javascript:void(0)" class="nav-link" (click)="onLoggedout()">
+              <span class="item-icon">
+                <svg class="navbar-nav-svg" viewBox="0 0 513 513" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <title>Sair</title>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M512.023 256C511.863 114.681 397.342 0.159894 256.023 4.97513e-06C139.126 -0.0229162 37.0674 79.1577 8.04038 192.393C-20.9867 305.629 30.3947 424.143 132.887 480.358C133.518 480.829 134.21 481.21 134.944 481.493C303.946 572.587 512.023 449.971 512.023 256ZM326.193 464.521L352.45 474.522C291.035 501.741 220.977 501.741 159.562 474.522L185.845 464.512C202.377 458.176 213.309 442.323 213.356 424.619V422.224C224.67 433.813 233.689 433.741 258.698 433.539L258.706 433.539L258.708 433.539C262.3 433.51 266.224 433.479 270.53 433.479C283.487 433.479 291.846 429.229 298.69 422.601V424.619C298.732 442.324 309.661 458.18 326.193 464.521ZM302.922 388.767C305.34 383.831 308.742 379.368 312.992 375.68C332.227 359.677 342.748 335.511 341.356 310.528C341.356 309.675 341.356 308.702 341.305 307.891C341.112 305.511 341.925 303.158 343.546 301.405C345.168 299.652 347.45 298.659 349.838 298.667H358.508C367.934 298.667 375.575 291.026 375.575 281.6V256C375.528 246.594 367.915 238.98 358.508 238.933C355.276 238.933 352.321 237.107 350.876 234.216C349.43 231.325 349.742 227.866 351.682 225.28C366.412 203.906 374.678 178.743 375.49 152.798C375.49 118.374 375.49 108.117 366.615 92.3819C354.083 108.313 333.405 115.464 313.708 110.677C304.11 108.283 296.628 105.936 289.791 103.791C271.725 98.124 258.153 93.8667 221.89 93.8667C194.643 93.8667 162.156 101.265 162.156 136.533C162.145 138.773 161.253 140.919 159.673 142.507C158.171 144.043 123.176 180.506 160.1 224.905C162.241 227.448 162.71 231.004 161.301 234.016C159.892 237.027 156.863 238.947 153.538 238.933C144.112 238.933 136.471 246.574 136.471 256V281.6C136.471 291.026 144.112 298.667 153.538 298.667H162.242C164.63 298.659 166.912 299.652 168.534 301.405C170.156 303.158 170.968 305.511 170.775 307.891C170.722 308.612 170.723 309.441 170.724 310.233C170.724 310.332 170.724 310.431 170.724 310.528C169.333 335.521 179.865 359.696 199.114 375.697C203.544 379.556 207.049 384.26 209.473 389.462C211.007 391.549 212.583 393.771 214.201 396.145C224.032 410.558 228.537 416.412 241.516 416.412H270.53C284.217 416.412 289.68 408.297 297.863 396.14C299.425 393.82 301.086 391.353 302.922 388.767ZM179.786 448.546L138.886 464.128C44.1962 410.867 -2.64141 300.429 24.8878 195.334C52.4169 90.238 147.382 16.9447 256.023 16.9447C364.664 16.9447 459.629 90.238 487.158 195.334C514.687 300.429 467.85 410.867 373.16 464.128L332.277 448.555C322.289 444.838 315.689 435.275 315.756 424.619V407.552C315.645 400.375 318.656 393.503 324.008 388.719C345.732 370.704 358.31 343.955 358.329 315.733C367.413 315.781 376.141 312.206 382.581 305.799C389.021 299.393 392.642 290.684 392.642 281.6V256C392.618 242.467 384.615 230.222 372.23 224.768C384.965 203.168 391.963 178.668 392.556 153.6C392.556 108.629 392.189 100.506 374.176 72.2517C372.533 69.6428 369.612 68.1223 366.533 68.2744C363.454 68.4265 360.696 70.2275 359.319 72.9856C358.79 74.1035 344.71 100.847 317.83 94.1227C308.872 91.8764 301.629 89.6111 294.856 87.4928C275.925 81.5722 260.667 76.8 221.89 76.8C174.513 76.8 146.745 97.28 145.141 133.248C122.629 158.98 120.126 196.596 139.031 225.084C127.047 230.711 119.397 242.76 119.404 256V281.6C119.404 290.684 123.025 299.393 129.465 305.799C135.905 312.206 144.633 315.781 153.717 315.733C153.723 343.98 166.313 370.756 188.064 388.779C193.39 393.553 196.39 400.399 196.29 407.552V424.619C196.358 435.269 189.766 444.827 179.786 448.546Z"
+                  />
+                </svg>
+              </span>
+              Sair
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </div>
-</nav>
+</div>
 
-<h1>Últimos pedidos</h1>
-
-<ul class="items">
-  <li *ngFor="let receita of receitas | search: filtro">
-    <div class="item">
-      <img [src]="receita?.imagePath?.small" />
-
-      <div class="text">
-        <h2 [innerHTML]="receita?.nome | highlight: filtro"></h2>
-        <p [innerHTML]="receita?.descricao | highlight: filtro"></p>
+<div class="container">
+  <h2 class="title">Últimos Pedidos</h2>
+  <div class="order-container">
+    <div class="row order-item" *ngFor="let receita of receitas | search: filtro">
+      <div class="col-3 order-item-img">
+        <img [src]="receita?.imagePath?.small" [alt]="receita?.nome" class="img-fluid order-img" />
+      </div>
+      <div class="col-5 order-title-desc">
+        <h3 class="ordem-title" [innerHTML]="receita?.nome | highlight: filtro"></h3>
+        <p class="order-description" [innerHTML]="receita?.descricao | highlight: filtro"></p>
+      </div>
+      <div class="col-4">
+        <div class="row actions">
+          <div class="col-4">
+            <div
+              class="btn-circle btn-status d-flex justify-content-center align-items-center"
+              data-toggle="collapse"
+              href="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <span>Prato Finalizado</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="btn-circle btn-data d-flex justify-content-center align-items-center">
+              <span>Hoje 19:32</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <button
+              (click)="verReceita(receita?._id)"
+              class="btn btn-circle btn-receipe d-flex justify-content-center align-items-center"
+              data-toggle="collapse"
+              href="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <span>Ver receita</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="actions">
-      <span class="finalizado">Prato Finalizado</span>
-      <span class="data">Hoje 19:32</span>
-      <span class="receita" (click)="verReceita(receita?._id)">Ver receita</span>
-    </div>
-  </li>
-</ul>
+  </div>
+</div>

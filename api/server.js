@@ -5,7 +5,9 @@ const environment = require("./config/environment");
 let cors = require("cors");
 let expressJwt = require("express-jwt");
 let mongoose = require("mongoose");
+const compression = require('compression');
 
+app.use(compression());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({

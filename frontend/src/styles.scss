@@ -3,22 +3,52 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "~ngx-toastr/toastr";
 
-@import "~@swimlane/ngx-datatable/index.css";
-@import "~@swimlane/ngx-datatable/themes/material.scss";
-@import "~@swimlane/ngx-datatable/assets/icons.css";
+// @import "~@swimlane/ngx-datatable/index.css";
+// @import "~@swimlane/ngx-datatable/themes/material.scss";
+// @import "~@swimlane/ngx-datatable/assets/icons.css";
 
-@media screen and (max-width: 992px) {
-  .push-right {
-    .sidebar {
-      left: 235px !important;
-    }
-  }
+@font-face {
+  font-family: "TipperaryeTextW01-Regular";
+  src: url("./assets/fonts/37301e8d54d356c2f03e664266f657ea.eot");
+  src: url("./assets/fonts/37301e8d54d356c2f03e664266f657ea.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/37301e8d54d356c2f03e664266f657ea.woff2") format("woff2"),
+    url("./assets/fonts/37301e8d54d356c2f03e664266f657ea.woff") format("woff"),
+    url("./assets/fonts/37301e8d54d356c2f03e664266f657ea.ttf") format("truetype"),
+    url("./assets/fonts/37301e8d54d356c2f03e664266f657ea.svg#TipperaryeTextW01-Regular") format("svg");
+}
+
+@font-face {
+  font-family: "TipperaryeTextW01-Bold";
+  src: url("./assets/fonts/5474623336cd9df3cf26cdb25672f446.eot");
+  src: url("./assets/fonts/5474623336cd9df3cf26cdb25672f446.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/5474623336cd9df3cf26cdb25672f446.woff2") format("woff2"),
+    url("./assets/fonts/5474623336cd9df3cf26cdb25672f446.woff") format("woff"),
+    url("./assets/fonts/5474623336cd9df3cf26cdb25672f446.ttf") format("truetype"),
+    url("./assets/fonts/5474623336cd9df3cf26cdb25672f446.svg#TipperaryeTextW01-Bold") format("svg");
 }
 
 /* You can add global styles to this file, and also import other style files */
 /*
  * Globals
  */
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  font-family: "TipperaryeTextW01-Regular", Arial, Helvetica, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "TipperaryeTextW01-Bold", Arial, Helvetica, sans-serif;
+}
 
 /* Links */
 a,
@@ -48,25 +78,11 @@ a:hover {
   border: 0.05rem solid #fff;
 }
 
-/*
- * Base structure
- */
-
-// html,
-// body {
-//   height: 100%;
-// }
-
-// body {
-//   display: -ms-flexbox;
-//   display: -webkit-box;
-//   display: flex;
-//   -ms-flex-pack: center;
-//   -webkit-box-pack: center;
-//   justify-content: center;
-//   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
-// }
-
-// .cover-container {
-//   max-width: 65em;
-// }
+/* Custom media queries */
+@media screen and (max-width: 992px) {
+  .push-right {
+    .sidebar {
+      left: 235px !important;
+    }
+  }
+}

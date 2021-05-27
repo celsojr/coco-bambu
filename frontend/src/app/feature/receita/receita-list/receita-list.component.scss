@@ -1,143 +1,211 @@
 @import "../../../../variables";
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+
+.navbar-container {
+  background-color: map-get($coco-bambu-colors, menu-background);
+}
 
 .navbar {
   padding: 0;
-  background-color: map-get($coco-bambu-colors, menu-background);
-  .logo {
-    margin-left: 20px;
-  }
-  .navbar-session {
-    display: contents;
-    .search {
-      width: 50%;
-      @media screen and (max-width: 769px) {
-        width: 250px;
-      }
-      .form-control {
-        background-image: url("../../../../assets/images/icon-busca.png");
-        background-size: 35px;
-        background-repeat: no-repeat;
-        background-position-y: center;
-        background-position-x: right;
-        padding-left: 10px;
-        font-style: italic;
-        border: 0;
-        border-radius: initial;
-        transition: none;
-      }
-    }
-    .menu-item {
-      padding: 10px;
-      $size: 80px;
-      width: $size;
-      height: $size;
-      &:hover {
-        background-color: white;
-      }
-      .icon {
-        display: block;
-        margin: 0 auto;
-        font-size: 40px;
-      }
-    }
-    .menu-item > a {
-      color: #999;
-      &:hover {
-        color: map-get($coco-bambu-colors, primary);
-        text-decoration: none;
-      }
-    }
-    ul {
-      margin: 0;
-      margin-bottom: initial;
-      li {
-        float: left;
-        list-style: none;
-        text-align: center;
-      }
-    }
-  }
-}
 
-h1 {
-  padding: 40px 20px;
-  border-bottom: 1px solid #efefef;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
 
-.items {
-  list-style: none;
-  padding: 0 20px;
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #efefef;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-    .item {
+  .navbar-nav {
+    padding: 0 5px;
+
+    @include media-breakpoint-only(md) {
+      max-width: 230px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 10px;
+    }
+
+    > li {
+      min-width: 70px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      img {
-        float: left;
-        margin-right: 20px;
-      }
-      .text {
-        h2 {
-          font-size: 18px;
-          font-weight: bold;
-          @media screen and (min-width: 769px) {
-            font-size: 18px;
-          }
-        }
-        p {
-          font-size: 12px;
-          line-height: 120%;
-          @media screen and (min-width: 769px) {
-            font-size: 16px;
-          }
-        }
-      }
-    }
-    .actions {
-      display: flex;
-      .finalizado,
-      .receita,
-      .data {
-        border-radius: 50%;
-        padding: 20px;
-        height: 80px;
-        width: 80px;
-        display: flex;
-        justify-content: center;
-        line-height: 120%;
-        text-align: center;
-        margin: 0 10px;
-      }
-      .finalizado {
-        font-weight: 100;
-        color: #82d82d;
-        font-size: 18px;
-      }
-      .data {
-        font-weight: 100;
-        color: black;
-        background-color: #f0f0f0;
-      }
-      .receita {
-        color: white;
-        cursor: pointer;
-        font-weight: bold;
-        background-color: map-get($coco-bambu-colors, primary);
-      }
+      justify-content: center;
+      flex-wrap: nowrap;
+      font-size: 12px;
+
       > a {
-        color: white;
+        color: map-get($coco-bambu-colors, secundary);
         text-decoration: none;
       }
       > a:hover {
-        text-decoration: none;
+        color: gray;
+      }
+
+      $icon-size: 20px;
+      .navbar-nav-svg {
+        width: $icon-size;
+        height: $icon-size;
+      }
+    }
+  }
+
+  .nav-item {
+    .nav-link {
+      width: 100%;
+      text-align: center;
+    }
+
+    &.active > a {
+      background-color: white;
+      color: map-get($coco-bambu-colors, primary) !important;
+    }
+
+    .item-icon {
+      display: block;
+      text-align: center;
+      margin-bottom: 5px;
+      @include media-breakpoint-down(sm) {
+        display: initial;
+        margin-right: 5px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .search {
+    max-width: 300px;
+    border: 0;
+    border-radius: initial;
+    font-style: italic;
+
+    background-image: url("../../../../assets/images/icon-busca.png");
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: right;
+    margin-left: 25%;
+    @include media-breakpoint-down(md) {
+      margin-left: 5%;
+      max-width: 90%;
+    }
+  }
+}
+
+.container {
+  @include media-breakpoint-down(lg) {
+    max-width: initial;
+  }
+
+  h2 {
+    margin: 0 !important;
+    padding: 25px 0;
+    border-bottom: 1px solid map-get($coco-bambu-colors, divider);
+    font-size: 1rem;
+    @include media-breakpoint-up(lg) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .order-container {
+    padding: 0 20px;
+
+    .row > div {
+      margin: auto 0px;
+      padding: 0;
+    }
+
+    .order-item {
+      padding: 30px 0;
+      display: block;
+      border-bottom: 1px solid map-get($coco-bambu-colors, divider);
+      div {
+        margin: 0;
+        max-width: 100%;
+        p {
+          font-size: 11px;
+          line-height: 125%;
+        }
+        h3 {
+          font-size: 1rem;
+          margin: 0.5rem 0;
+        }
+      }
+      @include media-breakpoint-only(md) {
+        div > p {
+          max-width: 250px;
+        }
+        .order-item-img {
+          max-width: 175px;
+        }
+        .order-title-desc {
+          max-width: 250px;
+        }
+        .actions {
+          min-width: 300px;
+        }
+      }
+      @include media-breakpoint-up(md) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        div {
+          max-width: 100%;
+        }
+      }
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        align-items: center;
+        div {
+          h3 {
+            font-size: 1.2rem;
+          }
+          p {
+            font-size: 15px;
+            line-height: initial;
+          }
+        }
+      }
+
+      $btn-circle-diameter: 80px;
+      .btn-circle {
+        height: $btn-circle-diameter;
+        width: $btn-circle-diameter;
+        border-radius: 50%;
+        display: block;
+        text-align: center;
+        margin: 0 auto !important;
+      }
+
+      .actions {
+        .btn-status,
+        .btn-data,
+        .btn-receipe {
+          line-height: 120%;
+        }
+
+        .btn-status {
+          background-color: transparent;
+          color: map-get($coco-bambu-colors, accent);
+        }
+
+        .btn-data {
+          padding: 5px;
+          background-color: map-get($coco-bambu-colors, secundary);
+        }
+
+        .btn-receipe {
+          color: #fff;
+          font-family: "TipperaryeTextW01-Bold", Arial, Helvetica, sans-serif;
+          font-weight: bold;
+          background-color: map-get($coco-bambu-colors, primary);
+        }
+      }
+    }
+
+    .order-img {
+      min-width: 100%;
+      @include media-breakpoint-up(md) {
+        min-width: 0%;
+        max-width: 100%;
       }
     }
   }
